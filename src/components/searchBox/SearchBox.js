@@ -142,13 +142,10 @@ const SearchBox = () => {
   const [products, setProducts] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
 
-  // Fetch products on mount
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://dbserverjs.liara.run/categories");
-        console.log(response.data);
-        
+        const response = await axios.get("https://abtin67.github.io/public/db.json/categories");
         const allProducts = response.data.flatMap((category) =>
           category.subCategories.flatMap((subCategory) =>
             subCategory.products.map((product) => ({
@@ -165,11 +162,13 @@ const SearchBox = () => {
         setProducts(allProducts);
       } catch (error) {
         console.error("Error fetching data:", error);
+        alert("خطا در دریافت داده‌ها. لطفاً آدرس را بررسی کرده یا بعداً دوباره امتحان کنید.");
       }
     };
-
+  
     fetchData();
   }, []);
+  
 
   // Memoized filtered products
   const filteredProducts = useMemo(() => {
