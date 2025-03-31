@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/djstyle/static/css/main.3a55b598.css",
+    "main.js": "/djstyle/static/js/main.dbc70777.js",
+    "static/media/saat-header.jpg": "/djstyle/static/media/saat-header.c08f43b8cd9c7e7c9096.jpg",
+    "static/media/beautyBaner2.jpg": "/djstyle/static/media/beautyBaner2.26d1c4168438c153ad16.jpg",
+    "static/media/nozad.jpg": "/djstyle/static/media/nozad.cf2b3c12fe739b946117.jpg",
+    "static/media/sport.jpg": "/djstyle/static/media/sport.9e1e34f579d6f244aced.jpg",
+    "static/media/childesh-baner.jpg": "/djstyle/static/media/childesh-baner.41f93906baa7e354a116.jpg",
+    "static/media/headerMans.jpg": "/djstyle/static/media/headerMans.cdbb3a6376c7199393d5.jpg",
+    "static/media/varzeshi.jpg": "/djstyle/static/media/varzeshi.771a1c2c2d4a48b5b615.jpg",
+    "static/media/lebasMardane.jpg": "/djstyle/static/media/lebasMardane.0abc35eafb36f7c7f99f.jpg",
+    "static/media/lebaceMardane": "/djstyle/static/media/lebaceMardane.6193046566a8d3e00fa9",
+    "static/media/pesarane.jpg": "/djstyle/static/media/pesarane.e2af031b715a82f31c22.jpg",
+    "static/media/ch.jpg": "/djstyle/static/media/ch.d22db2fcf62c45a34d7c.jpg",
+    "static/media/docktrane.jpg": "/djstyle/static/media/docktrane.9f3b23a200f0eddfcce1.jpg",
+    "static/media/kafshe-mardane.jpg": "/djstyle/static/media/kafshe-mardane.91338111977fafe523bc.jpg",
+    "static/media/girlsBaner.jpg": "/djstyle/static/media/girlsBaner.7abd62403be7cb2d0cd8.jpg",
+    "static/media/eynack.jpg": "/djstyle/static/media/eynack.42fd7b33fcc049de88ac.jpg",
+    "static/media/varzeshi-mardane.jpg": "/djstyle/static/media/varzeshi-mardane.9c6b7706bdc368d3ae5f.jpg",
+    "static/media/boyBaner.jpg": "/djstyle/static/media/boyBaner.723cfe3000bfe3243a9e.jpg",
+    "static/media/lavazemArayshi.jpg": "/djstyle/static/media/lavazemArayshi.835090636ea39b103178.jpg",
+    "static/media/acsesory-mardane.jpg": "/djstyle/static/media/acsesory-mardane.1ce03366614607c40ee3.jpg",
+    "static/media/varzeshimardane.jpg": "/djstyle/static/media/varzeshimardane.02bd27192ea6455a7008.jpg",
+    "static/media/ckafsh.jpg": "/djstyle/static/media/ckafsh.dd0abd2e99242ced235d.jpg",
+    "static/media/odklon.jpg": "/djstyle/static/media/odklon.b2a383a748f5da34d64f.jpg",
+    "static/media/mraghebatPost.jpg": "/djstyle/static/media/mraghebatPost.4a2e0d0ee5deaf80b00f.jpg",
+    "static/media/acssorymardane.jpg": "/djstyle/static/media/acssorymardane.a20a82fbe2529d2d1adf.jpg",
+    "static/media/l.sh.barghi.jpg": "/djstyle/static/media/l.sh.barghi.904bedaa69a2758a1a8c.jpg",
+    "static/media/kafshmardane.jpg": "/djstyle/static/media/kafshmardane.1ce393227358665d8ae0.jpg",
+    "static/media/lavazemBehdshti.jpg": "/djstyle/static/media/lavazemBehdshti.94fdbcf5483ab49c7bb4.jpg",
+    "static/media/Vazir.woff2": "/djstyle/static/media/Vazir.0236d12799f12ebefd2d.woff2",
+    "static/media/abzarSalamt.jpg": "/djstyle/static/media/abzarSalamt.e006ae7e7b09f1467aef.jpg",
+    "index.html": "/djstyle/index.html",
+    "main.3a55b598.css.map": "/djstyle/static/css/main.3a55b598.css.map",
+    "main.dbc70777.js.map": "/djstyle/static/js/main.dbc70777.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3a55b598.css",
+    "static/js/main.dbc70777.js"
+  ]
+}
