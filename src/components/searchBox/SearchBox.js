@@ -133,7 +133,7 @@ import React, { useState, useEffect, useMemo, memo } from 'react';
 import { Container, Form, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import CartCours from '../cartcours/CartCours';
-import Footer from './Footer';
+import Footer from '../footer/Footer';
 
 const SearchBox = () => {
   const [searchTerm, setSearchTerm] = useState("");
