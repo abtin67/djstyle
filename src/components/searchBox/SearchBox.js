@@ -17,7 +17,7 @@ const SearchBox = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/public/db.json/categories");
+        const response = await axios.get("https://dbserverjs.liara.run/categories");
         const allProducts = response.data.flatMap((category) =>
           category.subCategories.flatMap((subCategory) =>
             subCategory.products.map((product) => ({
