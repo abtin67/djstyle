@@ -132,7 +132,7 @@
 import React, { useState, useEffect, useMemo, memo } from 'react';
 import { Container, Form, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
-import CartCours from './CartCours';
+import CartCours from '../cartcours/CartCours';
 import Footer from './Footer';
 
 const SearchBox = () => {
@@ -147,6 +147,8 @@ const SearchBox = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get("https://dbserverjs.liara.run/categories");
+        console.log(response.data);
+        
         const allProducts = response.data.flatMap((category) =>
           category.subCategories.flatMap((subCategory) =>
             subCategory.products.map((product) => ({
