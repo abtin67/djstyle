@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/djstyle/static/css/main.6fd0d49d.css",
-    "main.js": "/djstyle/static/js/main.9ff3039d.js",
+    "main.js": "/djstyle/static/js/main.0b1b46a8.js",
     "static/media/saat-header.jpg": "/djstyle/static/media/saat-header.c08f43b8cd9c7e7c9096.jpg",
     "static/media/beautyBaner2.jpg": "/djstyle/static/media/beautyBaner2.26d1c4168438c153ad16.jpg",
     "static/media/nozad.jpg": "/djstyle/static/media/nozad.cf2b3c12fe739b946117.jpg",
@@ -33,10 +33,10 @@
     "static/media/abzarSalamt.jpg": "/djstyle/static/media/abzarSalamt.e006ae7e7b09f1467aef.jpg",
     "index.html": "/djstyle/index.html",
     "main.6fd0d49d.css.map": "/djstyle/static/css/main.6fd0d49d.css.map",
-    "main.9ff3039d.js.map": "/djstyle/static/js/main.9ff3039d.js.map"
+    "main.0b1b46a8.js.map": "/djstyle/static/js/main.0b1b46a8.js.map"
   },
   "entrypoints": [
     "static/css/main.6fd0d49d.css",
-    "static/js/main.9ff3039d.js"
+    "static/js/main.0b1b46a8.js"
   ]
 }
