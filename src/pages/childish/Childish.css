@@ -1,0 +1,31 @@
+.title-page{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px 0;
+}
+.title-page span{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.col-baner{
+    padding: 20px;
+    margin: 5px;
+    border: 2px solid #f4f4f4;
+    text-align: center;
+}
+.col-baner img{
+    width: 90%;
+    margin-bottom: 10px;
+}
+.col-baner:hover{
+    border: 2px solid #111;
+}
+.col-baner span{
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 30px;
+}

@@ -1,0 +1,9 @@
+.container-cart{
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+}
+.container-cart img{
+    width: 100%;
+    height: auto;
+}

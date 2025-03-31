@@ -1,0 +1,73 @@
+.imgContainer {
+  width: 100%;
+  position: relative;
+  height: auto;
+  margin: 20px;
+  overflow: hidden;
+}
+.img-full {
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin: 10px;
+  object-fit: cover;
+  display: block;
+}
+.img-full img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: all 0.7s ease;
+}
+.img-full img:hover {
+  transform: scale(1.1);
+}
+.img-full:hover .caption{
+  color: #000;
+}
+.imgThree1{
+  width: 33%;
+  display: inline-block;
+  padding: 5px;
+  
+}
+.imgThree1 img{
+  width: 100%;
+  transition: all 0.7s ease; 
+}
+.imgThree1:hover img{
+  transform: scale(1.1);
+}
+.caption {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  padding: 5px;
+  background-color: #fff;
+  color: #777;
+}
+.imgThree1:hover .caption{
+  color: #000;
+}
+.arrow{
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+}
+.btnLink svg{
+  background-color: rgb(241, 156, 156);
+  border: 1px solid;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+.btnLink svg:hover{
+  color: #fff;
+  background-color: red;
+  box-shadow: 0 4px 8px rgba(150,0,0,0.4);
+}
+@media(max-width:600px){
+  .imgThree1{
+    width: 100%;
+  }
+}

@@ -1,0 +1,28 @@
+.spinner-container {
+  width: 50%;
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.spinner-container h1{
+  margin: 15px 0;
+}
+.spinner {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #474bff 94%, #0000) top/9px 9px
+      no-repeat,
+    conic-gradient(#0000 30%, #474bff);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  animation: spinner-c7wet2 1s infinite linear;
+}
+
+@keyframes spinner-c7wet2 {
+  100% {
+    transform: rotate(1turn);
+  }
+}

@@ -1,0 +1,24 @@
+.container-baner {
+  width: 100%;
+  overflow: hidden;
+}
+.container-baner img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+.col-items {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.pagination {
+  margin: 0 0 10px 0;
+}
+@media (max-width:500px) {
+  .container-baner img{
+    height: 200px;
+  }
+}

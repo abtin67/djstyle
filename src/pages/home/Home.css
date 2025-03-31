@@ -1,0 +1,44 @@
+div{
+    position: relative;
+}
+div p{
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    font-size: 20px;
+    border: 1px solid;
+    background-color: aqua;
+    border-radius: 5px;
+    padding: 0 5px;
+}
+.mySwiper{
+    width: 100%;
+    border: none;
+}
+.swiper-slide{
+    border: none;
+}
+.container-fluid{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+.container-cart{
+    width: 100%;
+}
+.container-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px 0;
+}
+.container-text a{
+    font-size: 20px;
+    font-weight: 400;
+    outline: none;
+    padding-bottom: 10px;
+}
+.container-text a:focus{
+    border-bottom: 5px solid;
+    font-weight: 600;
+}

@@ -1,0 +1,43 @@
+.containerswiper{
+    margin: 50px 0;
+    display: flex;
+    padding: 30px 0;
+}
+
+
+.textFixed{
+    width: 300px;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+.textFixed h3{
+    font-weight: bold;
+    font-size: 50px;
+}
+.mySwiper{
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    padding: 10px;
+}
+.swiperTopSection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+@media(max-width:500px){
+    .textFixed h3{
+        font-weight: bold;
+        font-size: 30px;
+    }
+}
+@media(max-width:300px){
+    .textFixed h3{
+        font-weight: bold;
+        font-size: 20px;
+    }
+}

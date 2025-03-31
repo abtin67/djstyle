@@ -1,0 +1,19 @@
+footer{
+    border-top: 1px solid;
+    width: 100%;
+    padding-top: 20px 0;
+    margin-top: 100%;
+    z-index: 20;
+    bottom: 0;
+}
+footer h6{
+    color: #555;
+}
+footer h6:hover{
+    color: black;
+    cursor: pointer;
+}
+.media{
+    display: flex;
+    justify-content: space-between;
+}

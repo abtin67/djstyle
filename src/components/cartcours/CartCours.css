@@ -1,0 +1,73 @@
+.containerCartCours {
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    height: 350px; /* ارتفاع ثابت */
+    position: relative; /* برای موقعیت‌دهی دکمه خرید */
+    overflow: hidden; /* جلوگیری از بیرون زدگی محتوا */
+  }
+  
+  .containerTextCart {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out; /* انتقال نرم */
+  }
+  
+  .containerTextCart h6 {
+    margin: 10px 0;
+  }
+  
+  .containerTextCart .description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* تعداد خطوط مجاز */
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    box-orient: vertical;
+    height: 60px; /* ارتفاع برای تعداد خطوط مشخص */
+  }
+  
+  .containerTextCart .price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .containerCartCours img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .buyButton {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    bottom: -40px; /* موقعیت اولیه خارج از کارت */
+    transition: bottom 0.3s ease-in-out, opacity 0.3s ease-in-out; /* انتقال نرم */
+    opacity: 0; /* شفافیت اولیه */
+  }
+  
+  .containerCartCours:hover .buyButton {
+    bottom: 10px; /* موقعیت نهایی در هنگام هاور */
+    opacity: 1; /* تغییر شفافیت به کامل */
+  }
+  
+  .containerCartCours:hover .containerTextCart {
+    margin-bottom: 40px; /* ایجاد فضای خالی برای دکمه خرید */
+  }
+  
