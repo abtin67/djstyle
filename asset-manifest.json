@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/djstyle/static/css/main.6fd0d49d.css",
-    "main.js": "/djstyle/static/js/main.0b1b46a8.js",
+    "main.css": "/djstyle/static/css/main.ba992959.css",
+    "main.js": "/djstyle/static/js/main.f6931f3e.js",
     "static/media/saat-header.jpg": "/djstyle/static/media/saat-header.c08f43b8cd9c7e7c9096.jpg",
     "static/media/beautyBaner2.jpg": "/djstyle/static/media/beautyBaner2.26d1c4168438c153ad16.jpg",
     "static/media/nozad.jpg": "/djstyle/static/media/nozad.cf2b3c12fe739b946117.jpg",
@@ -32,11 +32,11 @@
     "static/media/Vazir.woff2": "/djstyle/static/media/Vazir.0236d12799f12ebefd2d.woff2",
     "static/media/abzarSalamt.jpg": "/djstyle/static/media/abzarSalamt.e006ae7e7b09f1467aef.jpg",
     "index.html": "/djstyle/index.html",
-    "main.6fd0d49d.css.map": "/djstyle/static/css/main.6fd0d49d.css.map",
-    "main.0b1b46a8.js.map": "/djstyle/static/js/main.0b1b46a8.js.map"
+    "main.ba992959.css.map": "/djstyle/static/css/main.ba992959.css.map",
+    "main.f6931f3e.js.map": "/djstyle/static/js/main.f6931f3e.js.map"
   },
   "entrypoints": [
-    "static/css/main.6fd0d49d.css",
-    "static/js/main.0b1b46a8.js"
+    "static/css/main.ba992959.css",
+    "static/js/main.f6931f3e.js"
   ]
 }
