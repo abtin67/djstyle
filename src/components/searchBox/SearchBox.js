@@ -1,158 +1,33 @@
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
-// import { Container, Row, Col, Form } from "react-bootstrap";
-// import CartCours from "../cartcours/CartCours";
-// import { memo } from "react";
 
-// import Footer from "../footer/Footer";
-// import "./SearchBox.css";
 
-// const SearchBox = () => {
-//   const [searchTerm, setSearchTerm] = useState("");
-//   const [minPrice, setMinPrice] = useState("");
-//   const [maxPrice, setMaxPrice] = useState("");
-//   const [products, setProducts] = useState([]);
-//   const [filteredProducts, setFilteredProducts] = useState([]);
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const response = await axios.get("https://dbserverjs.liara.run/categories");
-//         const allProducts = response.data.flatMap((category) =>
-//           category.subCategories.flatMap((subCategory) =>
-//             subCategory.products.map((product) => ({
-//               id: product.id,
-//               name: product.name,
-//               description: product.description,
-//               price: product.price,
-//               image: product.image,
-//               category: category.name,
-//               subCategory: subCategory.name,
-//             }))
-//           )
-//         );
-//         setProducts(allProducts);
-//       } catch (error) {
-//         console.error("Error fetching data:", error);
-//       }
-//     };
-
-//     fetchData();
-//   }, []);
-
-//   const handleSearch = (event) => {
-//     const term = event.target.value.toLowerCase();
-//     setSearchTerm(term);
-//     filterProducts(term, minPrice, maxPrice);
-//   };
-
-//   const handleMinPriceChange = (event) => {
-//     const price = event.target.value;
-//     setMinPrice(price);
-//     filterProducts(searchTerm, price, maxPrice);
-//   };
-
-//   const handleMaxPriceChange = (event) => {
-//     const price = event.target.value;
-//     setMaxPrice(price);
-//     filterProducts(searchTerm, minPrice, price);
-//   };
-
-//   const filterProducts = (term, minPrice, maxPrice) => {
-//     const filtered = products.filter((product) => {
-//       const name = product.name.toLowerCase();
-//       const category = product.category.toLowerCase();
-//       const subCategory = product.subCategory.toLowerCase();
-//       const price = product.price;
-//       const meetsPriceCriteria =
-//         (!minPrice || price >= minPrice) && (!maxPrice || price <= maxPrice);
-//       return (
-//         (name.includes(term) ||
-//           category.includes(term) ||
-//           subCategory.includes(term)) &&
-//         meetsPriceCriteria
-//       );
-//     });
-//     setFilteredProducts(filtered);
-//   };
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     return false;
-//   };
-
-//   return (
-//     <Container fluid className="search-box">
-//       <form className="search-container" onSubmit={handleSubmit}>
-//         <Form.Control
-//           type="text"
-//           placeholder="جستجو در تمام محصولات..."
-//           value={searchTerm}
-//           onChange={handleSearch}
-//           className="search-input"
-//         />
-//         <div className="price-input-container">
-//           <Form.Control
-//             type="number"
-//             placeholder="حداقل قیمت"
-//             value={minPrice}
-//             onChange={handleMinPriceChange}
-//             className="price-input"
-//           />
-//           <Form.Control
-//             type="number"
-//             placeholder="حداکثر قیمت"
-//             value={maxPrice}
-//             onChange={handleMaxPriceChange}
-//             className="price-input"
-//           />
-//         </div>
-//       </form>
-//       <Row className="py-5 product-list row-cols-1 row-cols-sm-2 row-cols-md-3">
-//         {filteredProducts.length > 0 && searchTerm ? (
-//           filteredProducts.map((product) => (
-//             <Col
-//               key={product.id}
-//               className=" d-flex justify-content-center product-item"
-//             >
-//               <CartCours {...product} />
-//             </Col>
-//           ))
-//         ) : (
-//           <span>محصولی یافت نشد.</span>
-//         )}
-//       </Row>
-//       <Footer />
-//     </Container>
-//   );
-// };
-
-// export default memo(SearchBox);
-
-import React, { useState, useEffect, useMemo, memo } from 'react';
-import { Container, Form, Row, Col } from 'react-bootstrap';
-import axios from 'axios';
-import CartCours from '../cartcours/CartCours';
-import Footer from '../footer/Footer';
+import React, { useState, useEffect, useCallback } from "react";
+import axios from "axios";
+import { Container, Row, Col, Form } from "react-bootstrap";
+import CartCours from "../cartcours/CartCours";
+import { memo } from "react";
+import Footer from "../footer/Footer";
+import "./SearchBox.css";
 
 const SearchBox = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [products, setProducts] = useState([]);
-  const [isSearching, setIsSearching] = useState(false);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://abtin67.github.io/public/db.json/categories");
+        const response = await axios.get(
+          "https://dbserverjs.liara.run/categories"
+        );
         const allProducts = response.data.flatMap((category) =>
           category.subCategories.flatMap((subCategory) =>
             subCategory.products.map((product) => ({
               id: product.id,
               name: product.name,
               description: product.description,
-              price: product.price,
+              price: parseFloat(product.price),
               image: product.image,
               category: category.name,
               subCategory: subCategory.name,
@@ -162,60 +37,61 @@ const SearchBox = () => {
         setProducts(allProducts);
       } catch (error) {
         console.error("Error fetching data:", error);
-        alert("خطا در دریافت داده‌ها. لطفاً آدرس را بررسی کرده یا بعداً دوباره امتحان کنید.");
       }
     };
-  
+
     fetchData();
   }, []);
-  
 
-  // Memoized filtered products
-  const filteredProducts = useMemo(() => {
-    if (!products.length) return [];
-    
-    const term = searchTerm.toLowerCase();
-    const min = Number(minPrice);
-    const max = Number(maxPrice);
-
-    return products.filter(product => {
-      const matchesSearch = term === '' ? true : 
-        product.name.toLowerCase().includes(term) ||
-        product.category.toLowerCase().includes(term) ||
-        product.subCategory.toLowerCase().includes(term);
-
-      const price = Number(product.price);
-      const matchesPrice = (isNaN(min) || price >= min) && 
-                          (isNaN(max) || price <= max);
-
-      return matchesSearch && matchesPrice;
+  const filterProducts = useCallback((term, minPrice, maxPrice) => {
+    const filtered = products.filter((product) => {
+      const name = product.name.toLowerCase();
+      const category = product.category.toLowerCase();
+      const subCategory = product.subCategory.toLowerCase();
+      const price = product.price;
+      const meetsPriceCriteria =
+        (!minPrice || price >= parseFloat(minPrice)) &&
+        (!maxPrice || price <= parseFloat(maxPrice));
+      return (
+        (name.includes(term) ||
+          category.includes(term) ||
+          subCategory.includes(term)) &&
+        meetsPriceCriteria
+      );
     });
-  }, [products, searchTerm, minPrice, maxPrice]);
+    setFilteredProducts(filtered);
+  }, [products]);
 
-  // Debounced search handler
   const handleSearch = (event) => {
-    const term = event.target.value;
-    setIsSearching(term.length > 0);
+    const term = event.target.value.toLowerCase();
     setSearchTerm(term);
+
+    if(term.trim()=== ''){
+      setFilteredProducts([])
+      return
+    }
+    filterProducts(term, minPrice, maxPrice);
   };
 
-  // Price change handlers
   const handleMinPriceChange = (event) => {
-    setMinPrice(event.target.value);
-    setIsSearching(true);
+    const price = event.target.value;
+    setMinPrice(price);
+    filterProducts(searchTerm, price, maxPrice);
   };
 
   const handleMaxPriceChange = (event) => {
-    setMaxPrice(event.target.value);
-    setIsSearching(true);
+    const price = event.target.value;
+    setMaxPrice(price);
+    filterProducts(searchTerm, minPrice, price);
   };
 
-  // Check if any filter is active
-  const hasActiveFilters = searchTerm || minPrice || maxPrice;
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
 
   return (
     <Container fluid className="search-box">
-      <form className="search-container">
+      <form className="search-container" onSubmit={handleSubmit}>
         <Form.Control
           type="text"
           placeholder="جستجو در تمام محصولات..."
@@ -223,7 +99,6 @@ const SearchBox = () => {
           onChange={handleSearch}
           className="search-input"
         />
-        
         <div className="price-input-container">
           <Form.Control
             type="number"
@@ -231,7 +106,6 @@ const SearchBox = () => {
             value={minPrice}
             onChange={handleMinPriceChange}
             className="price-input"
-            min="0"
           />
           <Form.Control
             type="number"
@@ -239,11 +113,9 @@ const SearchBox = () => {
             value={maxPrice}
             onChange={handleMaxPriceChange}
             className="price-input"
-            min="0"
           />
         </div>
       </form>
-
       <Row className="py-5 product-list row-cols-1 row-cols-sm-2 row-cols-md-3">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
@@ -254,11 +126,12 @@ const SearchBox = () => {
               <CartCours {...product} />
             </Col>
           ))
-        ) : (
-          hasActiveFilters && <span>محصولی با مشخصات مورد نظر یافت نشد.</span>
+        ) : searchTerm ? (
+          <span>محصولی با این مشخصات یافت نشد.</span>
+        ): (
+          <span>برای جستجو عبارت مورد نظر را وارد کنید.</span>
         )}
       </Row>
-      
       <Footer />
     </Container>
   );
