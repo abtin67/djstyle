@@ -42,3 +42,8 @@ div p{
     border-bottom: 5px solid;
     font-weight: 600;
 }
+.nav-link.active {
+    border-bottom: 5px solid;
+    font-weight: 600;
+}
+

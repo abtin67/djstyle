@@ -49,7 +49,7 @@ function Footer() {
             <Col>
               <h6>
               <span>شماره پشتیبانی :</span>
-              <NavLink dir="ltr" rel="noopener norefrrer" to="tel:+91 9038308519" target="_blank"><span>098 9038308519</span></NavLink>
+              <NavLink dir="ltr" rel="noopener norefrrer" to="tel:+98 9038308519" target="_blank"><span>09038308519</span></NavLink>
               </h6>
               <div className="media">
                 <NavLink rel="noopener norefrrer" target="_blank" className='nav-link' to="https://www.instagram.com/frydoun67">
