@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/djstyle/static/css/main.ba992959.css",
-    "main.js": "/djstyle/static/js/main.f6931f3e.js",
+    "main.css": "/djstyle/static/css/main.37e4d15f.css",
+    "main.js": "/djstyle/static/js/main.6705497b.js",
     "static/media/saat-header.jpg": "/djstyle/static/media/saat-header.c08f43b8cd9c7e7c9096.jpg",
+    "static/media/Lalezar-Regular.ttf": "/djstyle/static/media/Lalezar-Regular.241ca811c53de4ed36a4.ttf",
     "static/media/beautyBaner2.jpg": "/djstyle/static/media/beautyBaner2.26d1c4168438c153ad16.jpg",
     "static/media/nozad.jpg": "/djstyle/static/media/nozad.cf2b3c12fe739b946117.jpg",
     "static/media/sport.jpg": "/djstyle/static/media/sport.9e1e34f579d6f244aced.jpg",
@@ -32,11 +33,11 @@
     "static/media/Vazir.woff2": "/djstyle/static/media/Vazir.0236d12799f12ebefd2d.woff2",
     "static/media/abzarSalamt.jpg": "/djstyle/static/media/abzarSalamt.e006ae7e7b09f1467aef.jpg",
     "index.html": "/djstyle/index.html",
-    "main.ba992959.css.map": "/djstyle/static/css/main.ba992959.css.map",
-    "main.f6931f3e.js.map": "/djstyle/static/js/main.f6931f3e.js.map"
+    "main.37e4d15f.css.map": "/djstyle/static/css/main.37e4d15f.css.map",
+    "main.6705497b.js.map": "/djstyle/static/js/main.6705497b.js.map"
   },
   "entrypoints": [
-    "static/css/main.ba992959.css",
-    "static/js/main.f6931f3e.js"
+    "static/css/main.37e4d15f.css",
+    "static/js/main.6705497b.js"
   ]
 }
