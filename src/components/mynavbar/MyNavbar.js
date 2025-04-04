@@ -17,7 +17,7 @@ import "./MyNavbar.css";
 import LoginModal from "../loginModal/LoginModal";
 
 const MyNavbar = ({ showNavbar }) => {
-  let expand = "md";
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartItems } = useCart();
   const [userInfo, setUserInfo] = useState({
     username: "",
@@ -72,6 +72,10 @@ const MyNavbar = ({ showNavbar }) => {
     setShowLogoutModal(false);
   };
 
+  const handleCloseMenu = ()=>{
+    setIsMenuOpen(false)
+  }
+
   return (
     <>
       {showNavbar && (
@@ -99,10 +103,10 @@ const MyNavbar = ({ showNavbar }) => {
                   ) : null}
                 </button>
               </div>
-              <div className="store-name" style={{ borderBottom: "1px solid" }}>
+              <div className="store-name lalezar" style={{ borderBottom: "1px solid" }}>
                 <h1>فروشگاه من</h1>
               </div>
-              <div className="searchContainer d-flex">
+              <div className="searchContainer d-flex lalezar">
                 <GoSearch size="30px" />
                 <NavLink to="/searchBox" className="nav-link px-5">
                   جستجو...
@@ -111,25 +115,29 @@ const MyNavbar = ({ showNavbar }) => {
             </form>
           </header>
 
-          <Navbar key={expand} expand={expand} className="mb-3">
-            <Container fluid>
-              <NavLink to="/" className="nav-link">
-                <h6>فروشگاه آنلاین</h6>
+          <Navbar  expand='md' expanded={isMenuOpen} className="mb-3 " onToggle={(isOpen)=> setIsMenuOpen(isOpen)}>
+            <Container fluid className="mt-3">
+              <NavLink to="/" className="nav-link ">
+                <h4 className="lalezar">فروشگاه آنلاین</h4>
               </NavLink>
               <Navbar.Toggle
-                aria-controls={`offcanvasNavbar-expand-${expand}`}
+                aria-controls={`offcanvasNavbar-expand-md`}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
               />
               <Navbar.Offcanvas
-                id={`offcanvasNavbar-expand-${expand}`}
-                aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+                id={`offcanvasNavbar-expand-md`}
+                aria-labelledby={`offcanvasNavbarLabel-expand-md`}
                 placement="start"
+                show={isMenuOpen}
+                onHide={() => setIsMenuOpen(false)}
               >
                 <Offcanvas.Header closeButton>
-                  <NavLink to="/" className="nav-link">
+                  <NavLink to="/" className="nav-link lalezar">
                     <Offcanvas.Title
-                      id={`offcanvasNavbarLabel-expand-${expand}`}
+                    
+                      id={`offcanvasNavbarLabel-expand-md`}
                     >
-                      فروشگاه آنلاین
+                      فروشگاه 
                     </Offcanvas.Title>
                   </NavLink>
                 </Offcanvas.Header>
@@ -141,16 +149,21 @@ const MyNavbar = ({ showNavbar }) => {
                 </div>
                 <Offcanvas.Body>
                   <Nav className="justify-content-end flex-grow-1 pe-3">
-                    <NavLink to="/contact" className="nav-link">
+                    <NavLink to="/contact" className="nav-link" onClick={handleCloseMenu}>
                       تماس با ما
                     </NavLink>
-                    <NavLink to="/about" className="nav-link">
+                    <NavLink to="/about" className="nav-link" onClick={handleCloseMenu}>
                       درباره ما
                     </NavLink>
                     {userInfo.username || userInfo.phone ? (
-                      <Nav.Link onClick={handelLogout}>خروج</Nav.Link>
+                      <Nav.Link onClick={()=>{
+                        handelLogout();
+                        handleCloseMenu();
+                      }
+                      }
+                      >خروج</Nav.Link>
                     ) : (
-                      <Nav.Link as={NavLink} to="/loginPage">
+                      <Nav.Link as={NavLink} to="/loginPage" onClick={handleCloseMenu}>
                         ورود
                       </Nav.Link>
                     )}

@@ -15,14 +15,11 @@ function Feminine() {
   const [womensShoe, setWomensShoe] = useState([]);
   const [loading, setLoading] = useState(true);
 
- 
-
   useEffect(() => {
     axios
       .get("https://dbserverjs.liara.run/categories")
       .then((response) => {
         const categoriesData = response.data;
-    
 
         if (categoriesData && Array.isArray(categoriesData)) {
           const womenCategory = categoriesData.find(
@@ -50,7 +47,6 @@ function Feminine() {
       });
   }, []);
 
-
   if (loading) {
     return <Loaders />;
   }
@@ -59,21 +55,21 @@ function Feminine() {
     return <div>هیچ محصولی یافت نشد.</div>;
   }
 
-
   return (
     <>
       <Container fluid>
         <div className="imgCantainer">
-          <img style={{ width: "100%" }} src={saate} alt={saate} />
+          <img style={{ width: "100%",marginBottom:"20px" }} src={saate} alt={saate} />
         </div>
-        <Row>
+        <Row className="row-swiper">
           <div className="containerswiper">
             <div className="textFixed">
               <h3>تیشرت ها</h3>
             </div>
             <Swiper
               spaceBetween={10}
-              centeredSlides={true}
+              slidesPerView={"auto"}
+              centeredSlides={false}
               autoplay={{
                 delay: 3000,
                 disableOnInteraction: false,
@@ -81,15 +77,21 @@ function Feminine() {
               breakpoints={{
                 1200: {
                   slidesPerView: 4,
+                  centeredSlides: true,
                 },
                 992: {
                   slidesPerView: 3,
+                  centeredSlides: true,
                 },
                 767: {
                   slidesPerView: 2,
+                  centeredSlides: false,
+                  spaceBetween: 15,
                 },
-                500: {
+                480: {
                   slidesPerView: 1,
+                  centeredSlides: false,
+                  spaceBetween: 10,
                 },
               }}
               pagination={{
@@ -105,7 +107,7 @@ function Feminine() {
               {tshirts &&
                 tshirts.map((product) => (
                   <SwiperSlide key={product.id}>
-                    <Col>
+                    <Col className="d-flex justify-content-center">
                       <CartCours {...product} />
                     </Col>
                   </SwiperSlide>
@@ -117,12 +119,12 @@ function Feminine() {
           <h3>سایر محصولات زنانه</h3>
         </div>
 
-        <Row className="row-cols-1 row-cols-md-3 row-cols-sm-2 row-cols-lg-4 row-cols-xl-5">
+        <Row className=" row-cols-1 row-cols-md-2 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
           {loading ? (
             <Loaders />
           ) : (
             womensShoe.map((item) => (
-              <Col className="d-flex justify-content-center" key={item.id}>
+              <Col className="mb-4 d-flex justify-content-center" key={item.id}>
                 <CartCours {...item} />
               </Col>
             ))

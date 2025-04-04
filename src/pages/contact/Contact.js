@@ -47,7 +47,7 @@ function Contact() {
     e.preventDefault();
 
     const existingData =
-      JSON.parse(localStorage.getItem("cantactFormData")) || [];
+      JSON.parse(localStorage.getItem("contactFormData")) || [];
     const newData = [...existingData, formData];
     localStorage.setItem("contactFormData", JSON.stringify(newData));
 
@@ -112,6 +112,7 @@ function Contact() {
           <Form.Label><FaRegMessage size='23px' style={{marginLeft:"10px"}} /> متن پیام:</Form.Label>
           <Form.Control
             as="textarea"
+            name="message"
             rows={4}
             value={formData.message}
             onChange={handleInputChange}
@@ -122,7 +123,7 @@ function Contact() {
           <Form.Label> <IoImageOutline size='23px' style={{marginLeft:"10px"}} />عکس(اختیاری):</Form.Label>
           <Form.Control
            type="file"
-           accept="imge/*"
+           accept="image/*"
            onChange={handleImageChange}
           />
         </Form.Group>

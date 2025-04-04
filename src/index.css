@@ -6,4 +6,12 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: vazir;
+}
+@font-face {
+  font-family: 'lalezar';
+  src: url('./assets/fonts/Lalezar-Regular.ttf');
+}
+.lalezar{
+  font-family: lalezar;
 }
