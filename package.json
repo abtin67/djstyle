@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fluentui/react-breadcrumb": "^9.2.6",
     "@hookform/resolvers": "^3.10.0",
     "@stripe/react-stripe-js": "^3.0.0",
     "@stripe/stripe-js": "^5.2.0",
@@ -20,6 +21,7 @@
     "react-paginate": "^8.2.0",
     "react-router-dom": "^6.26.2",
     "react-scripts": "5.0.1",
+    "sweetalert2": "^11.22.2",
     "swiper": "^11.1.14",
     "web-vitals": "^2.1.4",
     "yup": "^1.6.1"

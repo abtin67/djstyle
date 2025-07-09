@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperButtons from "../swiperButtons/SwiperButtons";
 import { Keyboard, Navigation, Pagination, Scrollbar } from "swiper/modules";
 import Loaders from "../loders/Loders";
+import { NavLink } from "react-router-dom";
 
 function MensSports() {
   const [mensSport, setMensSport] = useState([]);
@@ -16,21 +17,16 @@ function MensSports() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("https://dbserverjs.liara.run/categories");
-        const categoriesData = response.data;
-        const maneCategory = categoriesData.find(
-          (category) => category.name === "مردانه"
+        const response = await axios.get(
+          "https://db-serverjs.liara.run/categories"
         );
-        if (maneCategory) {
-          const clothesSubCategory = maneCategory.subCategories.find(
-            (subCategory) => subCategory.name === "ورزشی مردانه"
-          );
+        const categoriesData = response.data;
+        const maneCategory = categoriesData.filter(
+          (category) => category.category === "ورزشی مردانه"
+        );
 
-          if (clothesSubCategory) {
-            setMensSport(clothesSubCategory.products);
-            setLoading(false);
-          }
-        }
+        setMensSport(maneCategory);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
         setLoading(false);
@@ -93,8 +89,10 @@ function MensSports() {
             {mensSport.map((item) => (
               <SwiperSlide key={item.id} className="story-container">
                 <div className="story-item">
+                  <NavLink to={`/products/${item.id}`} className='nav-link'>
                   <img src={item.image} alt="لباس مردانه" />
                   <span>{item.name}</span>
+                  </NavLink>
                 </div>
               </SwiperSlide>
             ))}

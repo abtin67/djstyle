@@ -49,23 +49,7 @@
 .imgThree1:hover .caption{
   color: #000;
 }
-.arrow{
-  width: 100%;
-  text-align: center;
-  padding-top: 10px;
-}
-.btnLink svg{
-  background-color: rgb(241, 156, 156);
-  border: 1px solid;
-  border-radius: 50%;
-  padding: 5px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-}
-.btnLink svg:hover{
-  color: #fff;
-  background-color: red;
-  box-shadow: 0 4px 8px rgba(150,0,0,0.4);
-}
+
 @media(max-width:600px){
   .imgThree1{
     width: 100%;

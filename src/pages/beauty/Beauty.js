@@ -11,41 +11,28 @@ import Footer from '../../components/footer/Footer'
 
 
 function Beauty() {
-  const [beauty, setBeauty] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 10;
 
- 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("https://dbserverjs.liara.run/categories");
+        const response = await axios.get("https://db-serverjs.liara.run/categories");
         const categoriesData = response.data;
-  
-        if (categoriesData && Array.isArray(categoriesData)) {
-          const beautyCategories = categoriesData.find(
-            (category) => category.name === "زیبایی و سلامت"
+        
+        if (categoriesData) {
+          const beautyCategory = categoriesData.filter(
+            (category) => category.category === "زیبایی و سلامت"
           );
-  
-          if (beautyCategories && Array.isArray(beautyCategories.subCategories)) {
-            const beautySubCategory = beautyCategories.subCategories.find(
-              (subCategory) => subCategory.name === "تمام محصولات"
-            );
-  
-            if (beautySubCategory && Array.isArray(beautySubCategory.products)) {
-              setBeauty(beautySubCategory.products);
-            } else {
-              console.warn("No products found in the subcategory.");
-            }
-          } else {
-            console.warn("No subcategories found in the beauty category.");
-          }
-        } else {
-          console.warn("No categories data found.");
+          
+              setProducts(beautyCategory);
+            
         }
       } catch (error) {
         console.error("Error fetching products:", error);
+        setProducts([]);
       } finally {
         setLoading(false);
       }
@@ -54,43 +41,46 @@ function Beauty() {
     fetchProducts();
   }, []);
 
-  
-
-  const handlePageClick = (event) => {
-    setCurrentPage(event.selected);
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
   };
 
   const offset = currentPage * itemsPerPage;
-  const currentItems = beauty.slice(offset, offset + itemsPerPage);
+  const currentItems = products.slice(offset, offset + itemsPerPage);
+  const pageCount = Math.ceil(products.length / itemsPerPage);
 
   return (
     <>
       <Container fluid>
         <div className="container-baner">
-          <img src={beautyBaner} alt="بنر زیبایی و سلامت" />
+          <img src={beautyBaner} alt="بنر زیبایی و سلامت" className="img-fluid" />
         </div>
         <div className="title-page">
-          
-            <span>انتخاب از بین تمام محصولات زیبایی و سلامت</span>
-            <MdOutlineKeyboardArrowDown size="40px" />
-         
+          <span>انتخاب از بین تمام محصولات زیبایی و سلامت</span>
+          <MdOutlineKeyboardArrowDown size="40px" />
         </div>
+        
         <Row className="py-5 d-flex justify-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
           {loading ? (
             <Loaders />
-          ) : (
+          ) : products.length > 0 ? (
             currentItems.map((item) => (
               <Col key={item.id} className="col-items">
                 <CartCours {...item} />
               </Col>
             ))
+          ) : (
+            <Col className="text-center py-5">
+              <p>محصولی یافت نشد</p>
+            </Col>
           )}
         </Row>
-        {!loading && (
+
+        {!loading && pageCount > 1 && (
           <ReactPaginate
             previousLabel={"قبلی"}
             nextLabel={"بعدی"}
-            pageCount={Math.ceil(beauty.length / itemsPerPage)}
+            pageCount={pageCount}
             onPageChange={handlePageClick}
             containerClassName={"pagination justify-content-center"}
             pageClassName={"page-item"}
@@ -104,6 +94,7 @@ function Beauty() {
             activeClassName={"active"}
             pageRangeDisplayed={5}
             marginPagesDisplayed={2}
+            forcePage={currentPage}
           />
         )}
 

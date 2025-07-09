@@ -1,14 +1,17 @@
 import { Col, Container, Row } from "react-bootstrap";
 import "./Masculine.css";
 import headerMane from "../../assets/images/headerMans.jpg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import lebaseMardane from "../../assets/images/lebaceMardane";
 import kafshe from "../../assets/images/kafshe-mardane.jpg";
 import acsessory from "../../assets/images/acsesory-mardane.jpg";
 import varzeshi from "../../assets/images/varzeshi-mardane.jpg";
 import Footer from "../../components/footer/Footer";
 
+
 function Masculine() {
+
+ 
   return (
     <>
       <Container fluid>

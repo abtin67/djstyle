@@ -9,6 +9,7 @@ function Chcomponent() {
   return (
     <>
       <div className="imgContainer">
+        <NavLink to='/childish' className='nav-link btnLink'>
         <div className="img-full">
           <img src={nozade} alt='نوزادی' />
           <h5 className="caption">نوزاد</h5>
@@ -23,9 +24,8 @@ function Chcomponent() {
             <h5 className="caption">پسرانه</h5>
           </div>
         </div>
-        <span className="arrow">
-          <NavLink to='/childish' className='nav-link btnLink'><FiArrowLeft size='40px' /></NavLink>
-        </span>
+        </NavLink>
+       
       </div>
     </>
   );

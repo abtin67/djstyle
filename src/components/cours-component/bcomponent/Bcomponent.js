@@ -13,6 +13,7 @@ function Bcomponent() {
   return (
     <>
       <div className="imgContainer">
+        <NavLink to='/beauty' className='nav-link btnLink'>
         <div className="img-full">
           <img src={arayeshi} alt='arayeshi' />
           <h5 className="caption">لوازم آرایشی</h5>
@@ -39,9 +40,8 @@ function Bcomponent() {
             <h5 className="caption">ابزار سلامت</h5>
           </div>
         </div>
-        <span className="arrow">
-          <NavLink to='/beauty' className='nav-link btnLink'><FiArrowLeft size='40px' /></NavLink>
-        </span>
+        </NavLink>
+        
       </div>
     </>
     

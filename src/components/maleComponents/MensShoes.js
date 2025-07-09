@@ -8,6 +8,7 @@ import { Keyboard, Navigation, Pagination, Scrollbar } from "swiper/modules";
 import CartCours from "../cartcours/CartCours";
 import axios from "axios";
 import Loaders from "../loders/Loders";
+import { NavLink } from "react-router-dom";
 
 function MeneShoes() {
   const [mensShoes, setMensShoes] = useState([]);
@@ -17,22 +18,19 @@ function MeneShoes() {
     const fetchProducts = async () => {
       try {
        
-        const response = await axios.get("https://dbserverjs.liara.run/categories");
+        const response = await axios.get("https://db-serverjs.liara.run/categories");
         const categoriesData = response.data;
 
-        const maneCategory = categoriesData.find(
-          (category) => category.name === "مردانه"
+        const maneCategory = categoriesData.filter(
+          (category) => category.category === "کفش مردانه"
         );
-        if (maneCategory) {
-          const clothesSubCategory = maneCategory.subCategories.find(
-            (subCategory) => subCategory.name === "کفش مردانه"
-          );
+        
 
-          if (clothesSubCategory) {
-            setMensShoes(clothesSubCategory.products);
+         
+            setMensShoes(maneCategory);
             setLoading(false);
-          }
-        }
+          
+        
       } catch (error) {
         console.error("Error fetching products:", error);
         setLoading(false);
@@ -95,8 +93,10 @@ function MeneShoes() {
             {mensShoes.map((item) => (
               <SwiperSlide key={item.id} className="story-container">
                 <div className="story-item">
+                  <NavLink to={`/products/${item.id}`} className='nav-link'>
                   <img src={item.image} alt="لباس مردانه" />
                   <span>{item.name}</span>
+                  </NavLink>
                 </div>
               </SwiperSlide>
             ))}

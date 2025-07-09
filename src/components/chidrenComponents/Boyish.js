@@ -15,21 +15,15 @@ function Boyish() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('https://dbserverjs.liara.run/categories')
+        const response = await axios.get('https://db-serverjs.liara.run/categories')
         const categoriesData = response.data;
-        const boyCategory = categoriesData.find(
-          (category) => category.name === "بچگانه"
+        const boyCategory = categoriesData.filter(
+          (category) => category.category === "پسرانه"
         );
-        if (boyCategory) {
-          const boySubCategory = boyCategory.subCategories.find(
-            (subCategory) => subCategory.name === "پسرانه"
-          );
-
-          if (boySubCategory) {
-            setBoyish(boySubCategory.products);
+        
+            setBoyish(boyCategory);
             setLoading(false);
-          }
-        }
+          
       } catch (error) {
         console.error("Error fetching products:", error);
         setLoading(false);

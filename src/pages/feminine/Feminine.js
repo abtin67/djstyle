@@ -17,29 +17,26 @@ function Feminine() {
 
   useEffect(() => {
     axios
-      .get("https://dbserverjs.liara.run/categories")
+      .get("https://db-serverjs.liara.run/categories")
       .then((response) => {
         const categoriesData = response.data;
 
-        if (categoriesData && Array.isArray(categoriesData)) {
-          const womenCategory = categoriesData.find(
-            (category) => category.name === "زنانه"
-          ) || { subCategories: [] }; // مقدار پیش‌فرض
+        if (categoriesData) {
+          const womenCategory = categoriesData.filter(
+            (category) => category.category === "پوشاک زنانه"
+          );
+         
+          setTshirts(womenCategory);
 
-          if (womenCategory.subCategories) {
-            const tshirtSubCategory = womenCategory.subCategories.find(
-              (subCategory) => subCategory.name === "تشرت زنانه"
-            ) || { products: [] }; // مقدار پیش‌فرض
-
-            const bagsAndShoesSubCategory = womenCategory.subCategories.find(
-              (subCategory) => subCategory.name === "کیف و کفش زنانه"
-            ) || { products: [] }; // مقدار پیش‌فرض
-
-            setTshirts(tshirtSubCategory.products);
-            setWomensShoe(bagsAndShoesSubCategory.products);
-          }
+          setLoading(false);
         }
-        setLoading(false);
+        
+        if(categoriesData){
+          const womenTshirts = categoriesData.filter(item=>(
+            item.category === "کفش زنانه"
+          ))
+          setWomensShoe(womenTshirts)
+        }
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
@@ -51,15 +48,15 @@ function Feminine() {
     return <Loaders />;
   }
 
-  if (!tshirts.length && !womensShoe.length) {
-    return <div>هیچ محصولی یافت نشد.</div>;
-  }
-
   return (
     <>
       <Container fluid>
         <div className="imgCantainer">
-          <img style={{ width: "100%",marginBottom:"20px" }} src={saate} alt={saate} />
+          <img
+            style={{ width: "100%", marginBottom: "20px" }}
+            src={saate}
+            alt={saate}
+          />
         </div>
         <Row className="row-swiper">
           <div className="containerswiper">
@@ -120,15 +117,11 @@ function Feminine() {
         </div>
 
         <Row className=" row-cols-1 row-cols-md-2 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
-          {loading ? (
-            <Loaders />
-          ) : (
-            womensShoe.map((item) => (
-              <Col className="mb-4 d-flex justify-content-center" key={item.id}>
-                <CartCours {...item} />
-              </Col>
-            ))
-          )}
+          {womensShoe.map((item) => (
+            <Col className="mb-4 d-flex justify-content-center" key={item.id}>
+              <CartCours {...item} />
+            </Col>
+          ))}
         </Row>
         <>
           <Footer />

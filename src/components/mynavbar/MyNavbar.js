@@ -15,6 +15,8 @@ import {
 import { useCart } from "../context/CartContext";
 import "./MyNavbar.css";
 import LoginModal from "../loginModal/LoginModal";
+import BreadcrumbComponent from "../breadcrumb/Breadcrumb";
+
 
 const MyNavbar = ({ showNavbar }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -119,7 +121,9 @@ const MyNavbar = ({ showNavbar }) => {
             <Container fluid className="mt-3">
               <NavLink to="/" className="nav-link ">
                 <h4 className="lalezar">فروشگاه آنلاین</h4>
+                <BreadcrumbComponent/>
               </NavLink>
+               
               <Navbar.Toggle
                 aria-controls={`offcanvasNavbar-expand-md`}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -170,6 +174,7 @@ const MyNavbar = ({ showNavbar }) => {
                   </Nav>
                 </Offcanvas.Body>
               </Navbar.Offcanvas>
+             
             </Container>
           </Navbar>
           <LoginModal
@@ -198,6 +203,7 @@ const MyNavbar = ({ showNavbar }) => {
               </Button>
             </Modal.Footer>
           </Modal>
+           
         </>
       )}
     </>

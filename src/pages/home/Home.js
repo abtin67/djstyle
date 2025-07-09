@@ -7,8 +7,11 @@ import Cart from "../../components/cart/Cart";
 import { NavLink, Outlet } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
 
+
 const Home = () => {
   const [products, setProducts] = useState([]);
+
+ 
  
 
   useEffect(() => {

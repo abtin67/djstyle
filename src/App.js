@@ -34,24 +34,32 @@ import { Girlish } from "./components/chidrenComponents/Girlish";
 import Boyish from "./components/chidrenComponents/Boyish";
 import SearchBox from "./components/searchBox/SearchBox";
 import { LoginPage } from "./components/loginPage/LoginPage";
+import ProductDetail from "./pages/productDetial/ProductDetail";
+
+
+
 
 function App() {
   return (
-    <CartProvider>
       <HashRouter>
+    <CartProvider>
+      
         <AppContent />
-      </HashRouter>
+      
     </CartProvider>
+      </HashRouter>
   );
 }
 
 function AppContent() {
   const location = useLocation();
   const showNavbar = location.pathname !== "/searchBox";
+ 
   return (
     <>
       
       <MyNavbar showNavbar={showNavbar} />
+     
       <Routes>
         {" "}
         <Route path="/" element={<Home />}>
@@ -78,6 +86,7 @@ function AppContent() {
         <Route path="/productGirlish" element={<Girlish />} />
         <Route path="/boyish" element={<Boyish />} />
         <Route path="/searchBox" element={<SearchBox />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
       </Routes>{" "}
       <CartIcon />
     </>
