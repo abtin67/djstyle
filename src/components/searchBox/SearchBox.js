@@ -19,21 +19,19 @@ const SearchBox = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://dbserverjs.liara.run/categories"
+          "https://db-serverjs.liara.run/categories"
         );
-        const allProducts = response.data.flatMap((category) =>
-          category.subCategories.flatMap((subCategory) =>
-            subCategory.products.map((product) => ({
+        const allProducts = response.data.flatMap(
+           (product) => ({
               id: product.id,
               name: product.name,
               description: product.description,
               price: parseFloat(product.price),
               image: product.image,
-              category: category.name,
-              subCategory: subCategory.name,
+              category: product.category
             }))
-          )
-        );
+      
+       
         setProducts(allProducts);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -47,15 +45,13 @@ const SearchBox = () => {
     const filtered = products.filter((product) => {
       const name = product.name.toLowerCase();
       const category = product.category.toLowerCase();
-      const subCategory = product.subCategory.toLowerCase();
       const price = product.price;
       const meetsPriceCriteria =
         (!minPrice || price >= parseFloat(minPrice)) &&
         (!maxPrice || price <= parseFloat(maxPrice));
       return (
         (name.includes(term) ||
-          category.includes(term) ||
-          subCategory.includes(term)) &&
+          category.includes(term)) &&
         meetsPriceCriteria
       );
     });
