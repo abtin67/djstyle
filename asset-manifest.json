@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/djstyle/static/css/main.bf8ce74a.css",
-    "main.js": "/djstyle/static/js/main.f4af2ca9.js",
+    "main.js": "/djstyle/static/js/main.016b627f.js",
     "static/media/saat-header.jpg": "/djstyle/static/media/saat-header.c08f43b8cd9c7e7c9096.jpg",
     "static/media/Lalezar-Regular.ttf": "/djstyle/static/media/Lalezar-Regular.241ca811c53de4ed36a4.ttf",
     "static/media/beautyBaner2.jpg": "/djstyle/static/media/beautyBaner2.26d1c4168438c153ad16.jpg",
@@ -34,10 +34,10 @@
     "static/media/abzarSalamt.jpg": "/djstyle/static/media/abzarSalamt.e006ae7e7b09f1467aef.jpg",
     "index.html": "/djstyle/index.html",
     "main.bf8ce74a.css.map": "/djstyle/static/css/main.bf8ce74a.css.map",
-    "main.f4af2ca9.js.map": "/djstyle/static/js/main.f4af2ca9.js.map"
+    "main.016b627f.js.map": "/djstyle/static/js/main.016b627f.js.map"
   },
   "entrypoints": [
     "static/css/main.bf8ce74a.css",
-    "static/js/main.f4af2ca9.js"
+    "static/js/main.016b627f.js"
   ]
 }
